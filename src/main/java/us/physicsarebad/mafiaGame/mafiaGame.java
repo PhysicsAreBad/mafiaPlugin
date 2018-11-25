@@ -28,10 +28,20 @@ public class mafiaGame extends JavaPlugin{
 	@Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     	if (cmd.getName().equalsIgnoreCase("mafia")) { // If the player typed /basic then do the following, note: If you only registered this executor for one command, you don't need this
-    		if (args[0] == "help") { //Send plugin help message
+    		if (args[0].equalsIgnoreCase("help")) { //Send plugin help message
     			sender.sendMessage(Color.BLUE + "\t Mafia Help \n" + Color.YELLOW + "/mafia help - This command \n/mafia roles - List roles for the Mafia Game \n/mafia info - Basic info about this plugin \n /whisper - whisper to player while in-game");
     			if (sender.hasPermission("mafia.admin")) { //Show admin commands
     				sender.sendMessage(Color.YELLOW + "/mafia start - Overrides and starts the game \n/mafia stop - overrides end and stops the game");
+    			}
+    		} else if (args[0].equalsIgnoreCase("start")) {
+    			if (sender.hasPermission("mafia.admin")) {
+    				GameController game = new GameController();
+    				game.startGameOverride();
+    			}
+    		} else if (args[0].equalsIgnoreCase("stop")) {
+    			if (sender.hasPermission("mafia.admin")) {
+    				GameController game = new GameController();
+    				game.stopGame();
     			}
     		}
     		return true;

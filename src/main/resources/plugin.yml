@@ -1,6 +1,6 @@
 name: mafiaGame
 main: us.physicsarebad.mafiaGame.mafiaGame
-version: 1
+version: 0.1
 commands:
    mafia:
       description: This is the base command for the Mafia Game.
