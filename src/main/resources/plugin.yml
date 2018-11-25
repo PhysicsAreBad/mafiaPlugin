@@ -1,3 +1,13 @@
 name: mafiaGame
 main: us.physicsarebad.mafiaGame.mafiaGame
-version: 0.1
+version: 1
+commands:
+   mafia:
+      description: This is the base command for the Mafia Game.
+      usage: /<command> help
+    whisper:
+      description: Whisper to other players without alerting evryone your message
+      usage: /<command> [player] [message]
+    w:
+      description: Whisper to other players without alerting evryone your message
+      usage: /<command> [player] [message]
