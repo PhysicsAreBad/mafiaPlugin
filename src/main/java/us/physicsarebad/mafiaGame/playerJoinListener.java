@@ -18,6 +18,7 @@ public class playerJoinListener implements Listener {
 	private String lastJoin = null;
 	
 	private GameController game = new GameController();
+	private RoleAssignment role = new RoleAssignment();
 	
 	public playerJoinListener () {
 		
@@ -48,6 +49,10 @@ public class playerJoinListener implements Listener {
 	public void onLeave (PlayerQuitEvent event) {
 		playerMap.clear();
 		hashMapKey = 0;
+		if (game.isGameAlive()) {
+			//Remove player from roles
+			role.playerLeft(event.getPlayer().toString());
+		}
 		for (Player player : Bukkit.getOnlinePlayers()) {
 		    playerMap.put(player.toString(), hashMapKey);
 		    hashMapKey++;

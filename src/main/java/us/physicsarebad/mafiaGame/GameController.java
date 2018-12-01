@@ -6,6 +6,8 @@ import org.bukkit.entity.Player;
 
 public class GameController {
 	private playerJoinListener playerListener = new playerJoinListener();
+	private RoleAssignment roles = new RoleAssignment();
+	
 	private boolean gameStatus = false;
 	
 	public GameController () {
@@ -45,6 +47,7 @@ public class GameController {
 		}
 		if (!escape) {
 			gameStatus = true;
+			roles.assignRoles();
 		} else {
 			escape = false;
 		}
